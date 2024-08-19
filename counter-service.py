@@ -12,8 +12,10 @@ def read_counter():
     If the file doesn't exist, it return 0.
     
     Returns:
-        int: The current counter value.
+        int: The current counter value. dddddkiuhkjhkjhkj
     """
+    print ("Hello wordl")
+
     if os.path.exists(COUNTER_FILE):
         with open(COUNTER_FILE, "r") as f:
             return int(f.read().strip())
