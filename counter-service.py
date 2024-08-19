@@ -14,7 +14,7 @@ def read_counter():
     Returns:
         int: The current counter value. dddddkiuhkjhkjhkj
     """
-    print ("Hello wordl")
+    print ("Hello wofhhfghfrdl")
 
     if os.path.exists(COUNTER_FILE):
         with open(COUNTER_FILE, "r") as f:
