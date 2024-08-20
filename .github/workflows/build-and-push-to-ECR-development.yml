@@ -88,9 +88,6 @@ jobs:
           role-session-name: Github
           audience: sts.amazonaws.com
           aws-region: us-east-1
-          #aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          #aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          #aws-region: eu-west-1
     
       - name: Login to Amazon ECR
         id: login-ecr
@@ -101,7 +98,7 @@ jobs:
         run: |
           REPO_NAME="${GITHUB_REPOSITORY##*/}"
           echo "REPO_NAME=$REPO_NAME" >> $GITHUB_ENV
-          echo "::set-output name=repo_name::$REPO_NAME"
+          echo "repo_name=$REPO_NAME" >> $GITHUB_OUTPUT
   
       - name: Build Docker image
         env:
