@@ -20,6 +20,12 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
+    permissions:
+      issues: write
+      actions: write
+      checks: write
+      contents: write
+
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -59,7 +65,7 @@ jobs:
         id: create_release
         uses: actions/create-release@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.CUSTOM_SERVICE_CICD }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
         with:
           tag_name: ${{ steps.next_version.outputs.tag }}
