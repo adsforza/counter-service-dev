@@ -85,7 +85,6 @@ jobs:
           role-to-assume: arn:aws:iam::143375183442:role/github-adsf-oidc
           role-session-name: Github
           audience: sts.amazonaws.com
-        env:
           aws-region: us-east-1
           #aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           #aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
