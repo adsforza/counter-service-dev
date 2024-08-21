@@ -19,6 +19,7 @@ ENV PYTHONUNBUFFERED=1
 RUN mkdir -p /data
 RUN echo "0" > /data/counter.txt
 RUN chmod 666 /data/counter.txt
+RUN chomd -r 777 ./data
 
 WORKDIR /app
 
