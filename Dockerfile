@@ -19,9 +19,10 @@ ENV PYTHONUNBUFFERED=1
 RUN mkdir -p /data
 RUN echo "0" > /data/counter.txt
 RUN chmod 666 /data/counter.txt
-RUN chmod -R 777 ./data
+
 
 WORKDIR /app
+RUN chmod -R 777 /data
 
 # Create a non-privileged user that the app will run under.
 # See https://docs.docker.com/go/dockerfile-user-best-practices/
