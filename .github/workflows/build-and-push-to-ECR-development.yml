@@ -170,7 +170,7 @@ jobs:
           # Copy docker-compose.yml to EC2 server
           $SCP_COMMAND docker-compose.yml $EC2_USER@$EC2_HOST:/home/ubuntu/docker/
 
-          $SCP_COMMAND "sudo systemctl status docker"
+          $SSH_COMMAND "sudo systemctl status docker"
           echo "IMAGE_NAME=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $ECR_REGISTRY
           
           # Pull and run the Docker container on EC2
