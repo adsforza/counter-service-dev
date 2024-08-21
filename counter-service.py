@@ -4,7 +4,7 @@ import os
 app = Flask(__name__)
 
 # Define the path for the counter file to store the data in Docker Volume
-COUNTER_FILE = "/data/counter.txt"
+COUNTER_FILE = "/app/data/counter.txt"
 
 def read_counter():
     """
