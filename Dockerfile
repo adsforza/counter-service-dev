@@ -7,7 +7,7 @@
 # Want to help us make this template better? Share your feedback here: https://forms.gle/ybq9Krt8jtBL3iCk7
 
 ARG PYTHON_VERSION=3.12.5
-FROM python:3.12.5-alpine as base
+FROM python:3.12.5-alpine AS base
 
 # Prevents Python from writing pyc files.
 ENV PYTHONDONTWRITEBYTECODE=1
@@ -19,7 +19,7 @@ ENV PYTHONUNBUFFERED=1
 RUN mkdir -p /data
 RUN echo "0" > /data/counter.txt
 RUN chmod 666 /data/counter.txt
-RUN chomd -r 777 ./data
+RUN chmod -R 777 ./data
 
 WORKDIR /app
 
