@@ -16,13 +16,16 @@ ENV PYTHONDONTWRITEBYTECODE=1
 # the application crashes without emitting any logs due to buffering.
 ENV PYTHONUNBUFFERED=1
 
-RUN mkdir -p /data
-RUN echo "0" > /data/counter.txt
-RUN chmod 666 /data/counter.txt
+
+#RUN echo "0" > /data/counter.txt
+#RUN chmod 666 /data/counter.txt
 
 
 WORKDIR /app
+
+RUN mkdir -p /data
 RUN chmod -R 777 /data
+RUN echo "0" > /data/counter.txt
 
 # Create a non-privileged user that the app will run under.
 # See https://docs.docker.com/go/dockerfile-user-best-practices/
