@@ -7,7 +7,7 @@
 # Want to help us make this template better? Share your feedback here: https://forms.gle/ybq9Krt8jtBL3iCk7
 
 ARG PYTHON_VERSION=3.12.5
-FROM python:3.12.5-alpine as base
+FROM python:${PYTHON_VERSION}-slim as base
 
 # Prevents Python from writing pyc files.
 ENV PYTHONDONTWRITEBYTECODE=1
@@ -16,11 +16,11 @@ ENV PYTHONDONTWRITEBYTECODE=1
 # the application crashes without emitting any logs due to buffering.
 ENV PYTHONUNBUFFERED=1
 
-RUN mkdir -p /data
-RUN echo "0" > /data/counter.txt
-RUN chmod 666 /data/counter.txt
-
 WORKDIR /app
+
+RUN mkdir -p /app/data
+RUN chmod -R 777 /app/data
+RUN echo "0" > /app/data/counter.txt
 
 # Create a non-privileged user that the app will run under.
 # See https://docs.docker.com/go/dockerfile-user-best-practices/
@@ -46,10 +46,10 @@ RUN --mount=type=cache,target=/root/.cache/pip \
 USER appuser
 
 # Copy the source code into the container.
-COPY counter-service.py .
+COPY . .
 
 # Expose the port that the application listens on.
-EXPOSE 8080
+EXPOSE 8000
 
 # Run the application.
-CMD gunicorn 'counter-service:app' --bind=0.0.0.0:8080 --access-logfile - --error-logfile -
+CMD gunicorn 'counter-service:app' --bind=0.0.0.0:8000
