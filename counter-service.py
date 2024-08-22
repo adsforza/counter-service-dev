@@ -12,7 +12,7 @@ def read_counter():
     If the file doesn't exist, it return 0.
     
     Returns:
-        int: The current counter value. dddddkiuhkjhkjhkj
+        int: The current counter value. 
     """
     #print ("Hello wofhhfghfjjjrdl")
 
